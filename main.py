@@ -1,27 +1,16 @@
 import matplotlib.pyplot as plt
 
-import jax
-import haiku as hk
 import numpy as np
 import seaborn as sns
 from scipy.stats import gaussian_kde, norm
 from tqdm import trange
 
-jax.config.update("jax_platform_name", "cpu")
-
-from bayesian_model.normal import NormalModel
-from bayesian_model.normal_known_precision import NormalModelKnownPrecision
-from bayesian_model.utils import get_kl_likelihood_posterior_predictive
 
 tau_star = 1.0
 mu_star = 5.0
 N = 1000
 B = 500
 
-rng = hk.PRNGSequence(42)
-
-nkp = NormalModelKnownPrecision(mu_star, tau_star)
-prior = nkp.Hyperparameters(0, 1)
 
 final_posterior_mean = []
 posterior_mean_trajs = []
