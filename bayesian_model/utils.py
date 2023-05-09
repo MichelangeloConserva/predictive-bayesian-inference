@@ -8,3 +8,4 @@ def get_kl_likelihood_posterior_predictive(
     return model.likelihood.kl_divergence(
         model.posterior_predictive_dist(*posterior_hps)
     )
+
